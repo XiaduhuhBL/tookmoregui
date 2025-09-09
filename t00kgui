@@ -408,7 +408,7 @@ TextButton_31.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_31.Position = UDim2.new(0, 0, 0.79416281, 0)
 TextButton_31.Size = UDim2.new(0, 113, 0, 34)
 TextButton_31.Font = Enum.Font.SourceSans
-TextButton_31.Text = "spam teams"
+TextButton_31.Text = "Become c00lkidd"
 TextButton_31.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_31.TextSize = 14.000
 
@@ -440,7 +440,7 @@ TextButton_33.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_33.Position = UDim2.new(0, 0, 0.898617506, 0)
 TextButton_33.Size = UDim2.new(0, 113, 0, 34)
 TextButton_33.Font = Enum.Font.SourceSans
-TextButton_33.Text = "hint"
+TextButton_33.Text = "plane all"
 TextButton_33.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_33.TextSize = 14.000
 
@@ -460,7 +460,7 @@ TextButton_35.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_35.Position = UDim2.new(0.243534476, 0, 0.846390188, 0)
 TextButton_35.Size = UDim2.new(0, 113, 0, 34)
 TextButton_35.Font = Enum.Font.SourceSans
-TextButton_35.Text = "add fog"
+TextButton_35.Text = "undisco"
 TextButton_35.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_35.TextSize = 14.000
 
