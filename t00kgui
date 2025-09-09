@@ -430,7 +430,7 @@ TextButton_32.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_32.Position = UDim2.new(0, 0, 0.846390188, 0)
 TextButton_32.Size = UDim2.new(0, 113, 0, 34)
 TextButton_32.Font = Enum.Font.SourceSans
-TextButton_32.Text = "message"
+TextButton_32.Text = "Filing all"
 TextButton_32.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_32.TextSize = 14.000
 
@@ -500,7 +500,7 @@ TextButton_39.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_39.Position = UDim2.new(0.487068951, 0, 0.898617506, 0)
 TextButton_39.Size = UDim2.new(0, 113, 0, 34)
 TextButton_39.Font = Enum.Font.SourceSans
-TextButton_39.Text = "alert"
+TextButton_39.Text = "Become c00lkidd"
 TextButton_39.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_39.TextSize = 14.000
 
@@ -530,7 +530,7 @@ TextButton_42.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_42.Position = UDim2.new(0.730603456, 0, 0.898617506, 0)
 TextButton_42.Size = UDim2.new(0, 113, 0, 34)
 TextButton_42.Font = Enum.Font.SourceSans
-TextButton_42.Text = "unfire all"
+TextButton_42.Text = "punish all"
 TextButton_42.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_42.TextSize = 14.000
 
@@ -3808,7 +3808,7 @@ local function RJKMV_fake_script() -- TextButton_42.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";unfire all")
+		RequestCommand:InvokeServer(";punish all")
 	end)
 end
 coroutine.wrap(RJKMV_fake_script)()
