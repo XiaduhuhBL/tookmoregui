@@ -440,7 +440,7 @@ TextButton_33.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_33.Position = UDim2.new(0, 0, 0.898617506, 0)
 TextButton_33.Size = UDim2.new(0, 113, 0, 34)
 TextButton_33.Font = Enum.Font.SourceSans
-TextButton_33.Text = "plane all"
+TextButton_33.Text = "unfly all"
 TextButton_33.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_33.TextSize = 14.000
 
@@ -510,7 +510,7 @@ TextButton_40.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_40.Position = UDim2.new(0.730603456, 0, 0.79416281, 0)
 TextButton_40.Size = UDim2.new(0, 113, 0, 34)
 TextButton_40.Font = Enum.Font.SourceSans
-TextButton_40.Text = "Kick all"
+TextButton_40.Text = "Become c00lkidd"
 TextButton_40.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_40.TextSize = 14.000
 
@@ -520,7 +520,7 @@ TextButton_41.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_41.Position = UDim2.new(0.730603456, 0, 0.846390188, 0)
 TextButton_41.Size = UDim2.new(0, 113, 0, 34)
 TextButton_41.Font = Enum.Font.SourceSans
-TextButton_41.Text = "Become c00lkidd"
+TextButton_41.Text = "kick all"
 TextButton_41.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_41.TextSize = 14.000
 
@@ -3610,28 +3610,27 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 	RequestCommand:InvokeServer(";res all")
 	wait(0.3)
 	RequestCommand:InvokeServer(";r6 all")
-    wait(0.4)
+    wait(2.8)
     RequestCommand:InvokeServer(";fog")
     RequestCommand:InvokeServer(";sh This is the realm of team T00kshaf1y!")
     RequestCommand:InvokeServer(";disco")
     RequestCommand:InvokeServer(";n Team t00kshaf1y join now!!")
-    wait(0.6)
+    wait(2.0)
     RequestCommand:InvokeServer(";alert all Welcome to our team's realm!!")
     RequestCommand:InvokeServer(";fire all")
     RequestCommand:InvokeServer(";dog all")
-    wait(0.2)
+    wait(1.6)
     RequestCommand:InvokeServer(";title me t00kshaf1y")
     RequestCommand:InvokeServer(";name all t00kshaf1y")
     wait(2.0)
 	RequestCommand:InvokeServer(";time 23")
 	RequestCommand:InvokeServer(";music 1847661821 ;volume inf  ;savemap ;pitch 1.1")
-    wait(0.3)
+    wait(5.0)
     RequestCommand:InvokeServer(";char all ttsghdvhfc2")
-    wait(4.0)
     RequestCommand:InvokeServer(";freeze all")
     RequestCommand:InvokeServer(";sh hacked by team t00kshaf1y")
     RequestCommand:InvokeServer(";sm This game was destroyed by us!")    
-    wait(1.1)
+    wait(3.0)
     RequestCommand:InvokeServer(";jail all")
     RequestCommand:InvokeServer(";sh lol")
     RequestCommand:InvokeServer(";loopkill all")
@@ -3768,7 +3767,7 @@ local function XXSSQK_fake_script() -- TextButton_39.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";mute other")
+		RequestCommand:InvokeServer(";alert Hacked by team T00kshaf1y!!")
 	end)
 end
 coroutine.wrap(XXSSQK_fake_script)()
