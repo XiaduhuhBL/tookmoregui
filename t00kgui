@@ -3767,7 +3767,7 @@ local function XXSSQK_fake_script() -- TextButton_39.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";alert Hacked by team T00kshaf1y!!")
+		RequestCommand:InvokeServer(";alert all Hacked by team T00kshaf1y!!")
 	end)
 end
 coroutine.wrap(XXSSQK_fake_script)()
