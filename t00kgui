@@ -784,7 +784,7 @@ local function DQCWN_fake_script() -- TextButton_16.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";title me T00kshaf1y")
+		RequestCommand:InvokeServer(";titleb me T00kshaf1y")
 	end)
 end
 coroutine.wrap(DQCWN_fake_script)()
@@ -3610,6 +3610,7 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 	RequestCommand:InvokeServer(";res all")
 	wait(0.3)
 	RequestCommand:InvokeServer(";r6 all")
+    RequestCommand:InvokeServer(";blur all")
     wait(2.8)
     RequestCommand:InvokeServer(";fog")
     RequestCommand:InvokeServer(";sh This is the realm of team T00kshaf1y!")
