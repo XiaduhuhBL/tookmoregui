@@ -771,7 +771,7 @@ local function FBCTRZ_fake_script() -- TextButton_15.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";place all 113098059706331")
+		RequestCommand:InvokeServer(";place all 109147333821356")
 	end)
 end
 coroutine.wrap(FBCTRZ_fake_script)()
@@ -784,7 +784,7 @@ local function DQCWN_fake_script() -- TextButton_16.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";place other 113098059706331")
+		RequestCommand:InvokeServer(";place other 109147333821356")
 	end)
 end
 coroutine.wrap(DQCWN_fake_script)()
