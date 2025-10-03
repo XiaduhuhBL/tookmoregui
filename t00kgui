@@ -154,7 +154,7 @@ TextButton_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_8.Position = UDim2.new(0.730603456, 0, 0.15821813, 0)
 TextButton_8.Size = UDim2.new(0, 113, 0, 34)
 TextButton_8.Font = Enum.Font.SourceSans
-TextButton_8.Text = "fire all"
+TextButton_8.Text = "dog all"
 TextButton_8.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_8.TextSize = 14.000
 
@@ -238,7 +238,7 @@ TextButton_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_14.Position = UDim2.new(0.243534476, 0, 0.32872504, 0)
 TextButton_14.Size = UDim2.new(0, 113, 0, 34)
 TextButton_14.Font = Enum.Font.SourceSans
-TextButton_14.Text = "godmode"
+TextButton_14.Text = "Team name all"
 TextButton_14.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_14.TextSize = 14.000
 
@@ -248,7 +248,7 @@ TextButton_15.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_15.Position = UDim2.new(0.487068951, 0, 0.32872504, 0)
 TextButton_15.Size = UDim2.new(0, 113, 0, 34)
 TextButton_15.Font = Enum.Font.SourceSans
-TextButton_15.Text = "Team name all"
+TextButton_15.Text = "tp all to meep city 4"
 TextButton_15.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_15.TextSize = 14.000
 
@@ -258,7 +258,7 @@ TextButton_16.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_16.Position = UDim2.new(0.730603456, 0, 0.32872504, 0)
 TextButton_16.Size = UDim2.new(0, 113, 0, 34)
 TextButton_16.Font = Enum.Font.SourceSans
-TextButton_16.Text = "Title me"
+TextButton_16.Text = "tp other to meep city 4"
 TextButton_16.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_16.TextSize = 14.000
 
@@ -680,7 +680,7 @@ local function ZUTSK_fake_script() -- TextButton_8.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";fire all")
+		RequestCommand:InvokeServer(";dog all")
 	end)
 end
 coroutine.wrap(ZUTSK_fake_script)()
@@ -693,7 +693,7 @@ local function TTBZ_fake_script() -- TextButton_9.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";sm T00kshaf1y has already hacked this server")
+		RequestCommand:InvokeServer(";sm T00kshaf1y has already haxed this server")
 	end)
 end
 coroutine.wrap(TTBZ_fake_script)()
@@ -706,7 +706,7 @@ local function TXVIBY_fake_script() -- TextButton_10.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 
-		RequestCommand:InvokeServer(";disco")
+		RequestCommand:InvokeServer(";sm Team T00kshaf1y join now!!!")
 	end)
 end
 coroutine.wrap(TXVIBY_fake_script)()
@@ -758,7 +758,7 @@ local function TRKGLWM_fake_script() -- TextButton_14.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";god")
+		RequestCommand:InvokeServer(";name all T00kshaf1y")
 	end)
 end
 coroutine.wrap(TRKGLWM_fake_script)()
@@ -771,7 +771,7 @@ local function FBCTRZ_fake_script() -- TextButton_15.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";name all T00kshaf1y")
+		RequestCommand:InvokeServer(";place all 113098059706331")
 	end)
 end
 coroutine.wrap(FBCTRZ_fake_script)()
@@ -784,7 +784,7 @@ local function DQCWN_fake_script() -- TextButton_16.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";titleb me T00kshaf1y")
+		RequestCommand:InvokeServer(";place other 113098059706331")
 	end)
 end
 coroutine.wrap(DQCWN_fake_script)()
