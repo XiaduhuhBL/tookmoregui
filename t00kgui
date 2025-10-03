@@ -154,7 +154,7 @@ TextButton_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_8.Position = UDim2.new(0.730603456, 0, 0.15821813, 0)
 TextButton_8.Size = UDim2.new(0, 113, 0, 34)
 TextButton_8.Font = Enum.Font.SourceSans
-TextButton_8.Text = "dog all"
+TextButton_8.Text = "fire all"
 TextButton_8.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_8.TextSize = 14.000
 
@@ -680,7 +680,7 @@ local function ZUTSK_fake_script() -- TextButton_8.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";dog all")
+		RequestCommand:InvokeServer(";fire all")
 	end)
 end
 coroutine.wrap(ZUTSK_fake_script)()
