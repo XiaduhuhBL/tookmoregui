@@ -1,0 +1,652 @@
+-- 三个脚本完全融合的 F3X GUI - 滚动框架去重版
+local FusionGUI = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local TitleLabel = Instance.new("TextLabel")
+
+-- 属性设置
+FusionGUI.Name = "TripleFusionF3XGUI"
+FusionGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+FusionGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FusionGUI.ResetOnSpawn = false
+
+MainFrame.Parent = FusionGUI
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 50)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 100, 255)
+MainFrame.BorderSizePixel = 2
+MainFrame.Position = UDim2.new(0.3, 0, 0.1, 0)
+MainFrame.Size = UDim2.new(0, 500, 0, 600)
+
+ScrollingFrame.Parent = MainFrame
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 40)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0, 0, 0.1, 0)
+ScrollingFrame.Size = UDim2.new(1, 0, 0.9, 0)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 12, 0) -- 更大的滚动区域容纳三个脚本的功能
+ScrollingFrame.ScrollBarThickness = 12
+ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(0, 150, 255)
+
+UIListLayout.Parent = ScrollingFrame
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 5)
+
+TitleLabel.Parent = MainFrame
+TitleLabel.BackgroundColor3 = Color3.fromRGB(0, 50, 100)
+TitleLabel.Size = UDim2.new(1, 0, 0.1, 0)
+TitleLabel.Font = Enum.Font.SourceSansBold
+TitleLabel.Text = "三合一 F3X GUI - k00p + t00k + proto 融合版"
+TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleLabel.TextSize = 18
+
+-- 创建分类标签函数
+local function createCategory(text, layoutOrder)
+    local label = Instance.new("TextLabel")
+    label.Parent = ScrollingFrame
+    label.BackgroundColor3 = Color3.fromRGB(30, 60, 120)
+    label.Size = UDim2.new(0.95, 0, 0, 30)
+    label.Font = Enum.Font.SourceSansBold
+    label.Text = text
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.TextSize = 16
+    label.LayoutOrder = layoutOrder
+    return label
+end
+
+-- 创建按钮函数
+local function createButton(text, layoutOrder)
+    local button = Instance.new("TextButton")
+    button.Parent = ScrollingFrame
+    button.BackgroundColor3 = Color3.fromRGB(40, 40, 80)
+    button.BorderColor3 = Color3.fromRGB(0, 150, 255)
+    button.Size = UDim2.new(0.95, 0, 0, 35)
+    button.Font = Enum.Font.SourceSans
+    button.Text = text
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.TextSize = 14
+    button.LayoutOrder = layoutOrder
+    return button
+end
+
+-- 获取HDAdmin远程函数
+local function ExecuteCommand(command)
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
+    RequestCommand:InvokeServer(command)
+end
+
+-- 获取F3X工具函数
+local function GetF3XTool()
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local backpack = player.Backpack
+    
+    for _, v in ipairs(backpack:GetChildren()) do
+        if v:FindFirstChild("SyncAPI") then
+            return v
+        end
+    end
+    for _, v in ipairs(char:GetChildren()) do
+        if v:FindFirstChild("SyncAPI") then
+            return v
+        end
+    end
+    return nil
+end
+
+-- F3X基础函数
+local function F3XInvoke(args)
+    local tool = GetF3XTool()
+    if tool then
+        tool.SyncAPI.ServerEndpoint:InvokeServer(unpack(args))
+    end
+end
+
+-- ========== 基础工具分类 ==========
+createCategory("=== 基础工具 ===", 1)
+
+createButton("获取F3X工具", 2).MouseButton1Click:Connect(function()
+    ExecuteCommand(";btools me")
+end)
+
+createButton("杀死所有玩家", 3).MouseButton1Click:Connect(function()
+    ExecuteCommand(";kill all")
+end)
+
+createButton("传送所有玩家", 4).MouseButton1Click:Connect(function()
+    ExecuteCommand(";bring all")
+end)
+
+createButton("冻结所有玩家", 5).MouseButton1Click:Connect(function()
+    ExecuteCommand(";freeze all")
+end)
+
+createButton("解冻所有玩家", 6).MouseButton1Click:Connect(function()
+    ExecuteCommand(";thaw all")
+end)
+
+createButton("崩溃其他玩家", 7).MouseButton1Click:Connect(function()
+    ExecuteCommand(";crash others")
+end)
+
+createButton("保存地图", 8).MouseButton1Click:Connect(function()
+    ExecuteCommand(";savemap")
+end)
+
+-- ========== 建筑控制分类 ==========
+createCategory("=== 建筑控制 ===", 9)
+
+createButton("解除所有锚定", 10).MouseButton1Click:Connect(function()
+    local tool = GetF3XTool()
+    if tool then
+        for _, v in game.Workspace:GetDescendants() do
+            if v:IsA("BasePart") then
+                spawn(function()
+                    local args = {
+                        [1] = "SyncAnchor",
+                        [2] = {
+                            [1] = {
+                                ["Part"] = v,
+                                ["Anchored"] = false
+                            }
+                        }
+                    }
+                    F3XInvoke(args)
+                end)
+            end
+        end
+    end
+end)
+
+createButton("删除所有部件", 11).MouseButton1Click:Connect(function()
+    local tool = GetF3XTool()
+    if tool then
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") or v:IsA("UnionOperation") then
+                spawn(function()
+                    local args = {
+                        [1] = "Remove",
+                        [2] = {
+                            [1] = v
+                        }
+                    }
+                    F3XInvoke(args)
+                end)
+            end
+        end
+    end
+end)
+
+createButton("生成基板", 12).MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local hrpx = math.floor(char.HumanoidRootPart.CFrame.x)
+    local hrpz = math.floor(char.HumanoidRootPart.CFrame.z)
+    local hrpy = math.floor(char.HumanoidRootPart.CFrame.y)
+    
+    local args = {
+        [1] = "CreatePart",
+        [2] = "Spawn",
+        [3] = CFrame.new(hrpx, hrpy-20, hrpz),
+        [4] = workspace
+    }
+    F3XInvoke(args)
+end)
+
+createButton("随机颜色垃圾邮件", 13).MouseButton1Click:Connect(function()
+    local tool = GetF3XTool()
+    if tool then
+        for _, v in game.Workspace:GetDescendants() do
+            if v:IsA("BasePart") then
+                spawn(function()
+                    local args = {
+                        [1] = "SyncColor",
+                        [2] = {
+                            [1] = {
+                                ["Part"] = v,
+                                ["Color"] = Color3.new(math.random(), math.random(), math.random()),
+                                ["UnionColoring"] = false
+                            }
+                        }
+                    }
+                    F3XInvoke(args)
+                end)
+            end
+        end
+    end
+end)
+
+-- ========== 视觉效果分类 ==========
+createCategory("=== 视觉效果 ===", 14)
+
+createButton("迪斯科模式", 15).MouseButton1Click:Connect(function()
+    ExecuteCommand(";disco")
+    ExecuteCommand(";fog 7000 7000")
+end)
+
+createButton("停止迪斯科", 16).MouseButton1Click:Connect(function()
+    ExecuteCommand(";fog 0 0")
+end)
+
+createButton("k00p天空盒", 17).MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local tool = GetF3XTool()
+    
+    if tool then
+        local position = char.Head.Position
+        local part = F3XInvoke({"CreatePart", "Normal", CFrame.new(position + Vector3.new(0, 2, 0)), workspace})
+        
+        -- 添加网格
+        F3XInvoke({"CreateMeshes", {{Part = part}}})
+        
+        -- 设置网格
+        F3XInvoke({"SyncMesh", {{Part = part, MeshId = "rbxassetid://8006679977"}}})
+        
+        -- 设置网格大小
+        F3XInvoke({"SyncMesh", {{Part = part, Scale = Vector3.new(90, 90, 90)}}})
+        
+        -- 设置纹理
+        F3XInvoke({"SyncMesh", {{Part = part, TextureId = "rbxassetid://15849970412"}}})
+    end
+end)
+
+createButton("proto天空盒", 18).MouseButton1Click:Connect(function()
+    ExecuteCommand(";fogcolor black ;time 0")
+    wait(0.1)
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local tool = GetF3XTool()
+    
+    if tool then
+        local e = char.HumanoidRootPart.CFrame.x
+        local f = char.HumanoidRootPart.CFrame.y
+        local g = char.HumanoidRootPart.CFrame.z
+        
+        F3XInvoke({"CreatePart", "Normal", CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0), workspace})
+        
+        for _, v in game.Workspace:GetDescendants() do
+            if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
+                F3XInvoke({"SetName", {v}, "Sky"})
+                F3XInvoke({"CreateMeshes", {{Part = v}}})
+                F3XInvoke({"SyncMesh", {{Part = v, MeshId = "rbxassetid://111891702759441"}}})
+                F3XInvoke({"SyncMesh", {{Part = v, TextureId = "rbxassetid://84491519970706"}}})
+                F3XInvoke({"SyncMesh", {{Part = v, Scale = Vector3.new(99999,99999,99999)}}})
+                F3XInvoke({"SetLocked", {v}, true})
+            end
+        end
+    end
+end)
+
+createButton("t00k天空盒", 19).MouseButton1Click:Connect(function()
+    ExecuteCommand(";fogcolor cyan")
+    wait(0.25)
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local tool = GetF3XTool()
+    
+    if tool then
+        local e = char.HumanoidRootPart.CFrame.x
+        local f = char.HumanoidRootPart.CFrame.y
+        local g = char.HumanoidRootPart.CFrame.z
+        
+        F3XInvoke({"CreatePart", "Normal", CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0), workspace})
+        
+        for _, v in game.Workspace:GetDescendants() do
+            if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
+                F3XInvoke({"SetName", {v}, "Sky"})
+                F3XInvoke({"CreateMeshes", {{Part = v}}})
+                F3XInvoke({"SyncMesh", {{Part = v, MeshId = "rbxassetid://111891702759441"}}})
+                F3XInvoke({"SyncMesh", {{Part = v, TextureId = "rbxassetid://118953088842031"}}})
+                F3XInvoke({"SyncMesh", {{Part = v, Scale = Vector3.new(99999,99999,99999)}}})
+                F3XInvoke({"SetLocked", {v}, true})
+            end
+        end
+    end
+end)
+
+createButton("贴图垃圾邮件", 20).MouseButton1Click:Connect(function()
+    local tool = GetF3XTool()
+    if tool then
+        local decalId = "9422866248"
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") then
+                spawn(function()
+                    local faces = {
+                        Enum.NormalId.Front,
+                        Enum.NormalId.Back,
+                        Enum.NormalId.Left,
+                        Enum.NormalId.Right,
+                        Enum.NormalId.Bottom,
+                        Enum.NormalId.Top
+                    }
+                    
+                    for _, face in ipairs(faces) do
+                        F3XInvoke({"CreateTextures", {{Part = v, Face = face, TextureType = "Decal"}}})
+                        F3XInvoke({"SyncTexture", {{Part = v, Face = face, TextureType = "Decal", Texture = "rbxassetid://"..decalId}}})
+                    end
+                end)
+            end
+        end
+    end
+end)
+
+createButton("666特效", 21).MouseButton1Click:Connect(function()
+    local tool = GetF3XTool()
+    if tool then
+        -- 为所有部件添加火焰
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") then
+                spawn(function()
+                    F3XInvoke({"CreateDecorations", {{Part = v, DecorationType = "Fire"}}})
+                    F3XInvoke({"SyncDecorate", {{Part = v, DecorationType = "Fire", Size = 30, Heat = 35}}})
+                end)
+            end
+        end
+    end
+end)
+
+-- ========== 玩家控制分类 ==========
+createCategory("=== 玩家控制 ===", 22)
+
+createButton("监狱所有玩家", 23).MouseButton1Click:Connect(function()
+    ExecuteCommand(";jail all")
+end)
+
+createButton("释放所有玩家", 24).MouseButton1Click:Connect(function()
+    ExecuteCommand(";unjail all")
+end)
+
+createButton("隐身所有玩家", 25).MouseButton1Click:Connect(function()
+    ExecuteCommand(";invisible all")
+end)
+
+createButton("显示所有玩家", 26).MouseButton1Click:Connect(function()
+    ExecuteCommand(";visible all")
+end)
+
+createButton("变成狗所有玩家", 27).MouseButton1Click:Connect(function()
+    ExecuteCommand(";dog all")
+end)
+
+createButton("坦克所有玩家", 28).MouseButton1Click:Connect(function()
+    ExecuteCommand(";tank all")
+end)
+
+createButton("汽车所有玩家", 29).MouseButton1Click:Connect(function()
+    ExecuteCommand(";car all")
+end)
+
+createButton("抛掷所有玩家", 30).MouseButton1Click:Connect(function()
+    ExecuteCommand(";fling all")
+end)
+
+createButton("禁飞所有玩家", 31).MouseButton1Click:Connect(function()
+    ExecuteCommand(";unfly all")
+end)
+
+createButton("静音所有玩家", 32).MouseButton1Click:Connect(function()
+    ExecuteCommand(";mute all")
+end)
+
+createButton("模糊所有玩家", 33).MouseButton1Click:Connect(function()
+    ExecuteCommand(";blur all")
+end)
+
+-- ========== 音乐和声音分类 ==========
+createCategory("=== 音乐和声音 ===", 34)
+
+createButton("k00p主题音乐", 35).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music 1839246711 ;volume inf ;pitch 1.04")
+end)
+
+createButton("团队主题音乐", 36).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music 1847661821")
+end)
+
+createButton("螃蟹狂欢音乐", 37).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music 5410086218")
+end)
+
+createButton("怪物混音音乐", 38).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music 35930009")
+end)
+
+createButton("短音乐", 39).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music 5356466111")
+end)
+
+createButton("口哨音效", 40).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music 3152833592 ;volume inf")
+end)
+
+createButton("停止所有音乐", 41).MouseButton1Click:Connect(function()
+    ExecuteCommand(";music")
+end)
+
+-- ========== 特殊功能分类 ==========
+createCategory("=== 特殊功能 ===", 42)
+
+createButton("托马斯变身 [R6]", 43).MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local tool = GetF3XTool()
+    
+    if tool and char:FindFirstChild("HumanoidRootPart") then
+        -- 使身体部件透明
+        local bodyParts = {
+            char.Torso,
+            char["Left Leg"],
+            char["Right Leg"],
+            char["Left Arm"],
+            char["Right Arm"],
+            char.Head,
+            char.HumanoidRootPart
+        }
+        
+        for _, part in ipairs(bodyParts) do
+            if part then
+                F3XInvoke({"SyncMaterial", {{Part = part, Transparency = 1}}})
+            end
+        end
+        
+        -- 创建托马斯主体
+        F3XInvoke({"CreatePart", "Normal", char.HumanoidRootPart.CFrame, char})
+        
+        -- 设置托马斯属性
+        for _, v in char:GetDescendants() do
+            if v:IsA("BasePart") and v.Name == "Part" then
+                F3XInvoke({"SyncResize", {{Part = v, CFrame = char.HumanoidRootPart.CFrame, Size = Vector3.new(5, 5, 10)}}})
+                F3XInvoke({"CreateMeshes", {{Part = v}}})
+                F3XInvoke({"SyncMesh", {{Part = v, MeshId = "rbxassetid://2231280549", Scale = Vector3.new(2, 2, 1.5)}}})
+                F3XInvoke({"SyncMesh", {{Part = v, TextureId = "rbxassetid://2231280614"}}})
+                F3XInvoke({"CreateWelds", {v, char.HumanoidRootPart}, v})
+                F3XInvoke({"CreateLights", {{Part = v, LightType = "SpotLight"}}})
+                F3XInvoke({"SyncLighting", {{Part = v, LightType = "SpotLight", Brightness = 100}}})
+            end
+        end
+        
+        char.Humanoid.WalkSpeed = 80
+    end
+end)
+
+createButton("破坏地图", 44).MouseButton1Click:Connect(function()
+    ExecuteCommand(";btools me")
+    wait(0.4)
+    ExecuteCommand(";punish all")
+    wait(0.1)
+    
+    local tool = GetF3XTool()
+    if tool then
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") or v:IsA("UnionOperation") then
+                spawn(function()
+                    F3XInvoke({"Remove", {v}})
+                end)
+            end
+        end
+    end
+    
+    ExecuteCommand(";fogcolor black ;time 0")
+end)
+
+createButton("创建领域", 45).MouseButton1Click:Connect(function()
+    ExecuteCommand(";btools me")
+    wait(0.4)
+    ExecuteCommand(";punish all")
+    wait(0.1)
+    
+    local tool = GetF3XTool()
+    if tool then
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") or v:IsA("UnionOperation") then
+                spawn(function()
+                    F3XInvoke({"Remove", {v}})
+                end)
+            end
+        end
+    end
+    
+    ExecuteCommand(";fogcolor black ;time")
+    
+    -- 创建基板
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local position = CFrame.new(0, 5, 0)
+    local base = F3XInvoke({"CreatePart", "Normal", position, workspace})
+    F3XInvoke({"SyncResize", {{Part = base, CFrame = position, Size = Vector3.new(512, 16, 512)}}})
+    F3XInvoke({"SyncMaterial", {{Part = base, Material = Enum.Material.Concrete}}})
+    F3XInvoke({"SyncColor", {{Part = base, Color = Color3.new(0.513725, 0.513725, 0.513725)}}})
+    F3XInvoke({"SetName", {base}, "loltroll"})
+    F3XInvoke({"SetLocked", {base}, true})
+    
+    -- 创建天空
+    local sky = F3XInvoke({"CreatePart", "Normal", position, workspace})
+    F3XInvoke({"CreateMeshes", {{Part = sky}}})
+    F3XInvoke({"SyncMesh", {{Part = sky, MeshId = "rbxassetid://111891702759441"}}})
+    F3XInvoke({"SyncMesh", {{Part = sky, TextureId = "rbxassetid://9820931824"}}})
+    F3XInvoke({"SyncMesh", {{Part = sky, Scale = Vector3.new(20000, 20000, 20000)}}})
+    F3XInvoke({"SetLocked", {sky}, true})
+    F3XInvoke({"SetName", {sky}, "kn000pezzzzz"})
+    
+    ExecuteCommand(";res all")
+    wait(0.3)
+    ExecuteCommand(";r6 all")
+    ExecuteCommand(";time 12")
+    wait(8.9)
+    ExecuteCommand(";music 1839246711 ;volume inf ;pitch 1.04")
+end)
+
+-- ========== 消息和提示分类 ==========
+createCategory("=== 消息和提示 ===", 46)
+
+createButton("发送服务器消息", 47).MouseButton1Click:Connect(function()
+    ExecuteCommand(";sm 服务器已被Team k00pkidd入侵!!!")
+end)
+
+createButton("发送服务器提示", 48).MouseButton1Click:Connect(function()
+    ExecuteCommand(";sh Team k00pkidd已经控制这个服务器!")
+end)
+
+createButton("发送警报", 49).MouseButton1Click:Connect(function()
+    ExecuteCommand(";alert all 被Team k00pkidd入侵!")
+end)
+
+createButton("强制聊天", 50).MouseButton1Click:Connect(function()
+    ExecuteCommand(";chat others T00kshaf1y is here")
+    wait(0.2)
+    ExecuteCommand(";chat others all hail t00kshaf1y")
+    wait(0.2)
+    ExecuteCommand(";chat others t00kshaf1y is god")
+end)
+
+createButton("团队垃圾邮件", 51).MouseButton1Click:Connect(function()
+    ExecuteCommand(";createteam red hacked by t00kshaf1y")
+    ExecuteCommand(";createteam cyan team protokidd on top")
+    ExecuteCommand(";createteam db Team t00kshaf1y")
+    ExecuteCommand(";createteam green t00kshaf1y on top")
+end)
+
+-- ========== 角色和外观分类 ==========
+createCategory("=== 角色和外观 ===", 52)
+
+createButton("变成k00pkiddalt", 53).MouseButton1Click:Connect(function()
+    ExecuteCommand(";char me k00pkiddalt")
+end)
+
+createButton("变成t00kshaf1y", 54).MouseButton1Click:Connect(function()
+    ExecuteCommand(";char me ttsghdvhfc2")
+    ExecuteCommand(";name me t00kshaf1y")
+end)
+
+createButton("变成c00lkidd", 55).MouseButton1Click:Connect(function()
+    ExecuteCommand(";char me c00lkiddsb4k")
+    ExecuteCommand(";name me c00lkidd")
+end)
+
+createButton("变成tubers93", 56).MouseButton1Click:Connect(function()
+    ExecuteCommand(";char me Tubers93qm")
+    ExecuteCommand(";name me Tubers93")
+end)
+
+createButton("R6模式", 57).MouseButton1Click:Connect(function()
+    ExecuteCommand(";R6 me")
+end)
+
+-- ========== 时间控制分类 ==========
+createCategory("=== 时间控制 ===", 58)
+
+createButton("设置为夜晚", 59).MouseButton1Click:Connect(function()
+    ExecuteCommand(";time 23")
+end)
+
+createButton("设置为白天", 60).MouseButton1Click:Connect(function()
+    ExecuteCommand(";time 14")
+end)
+
+createButton("停止时间", 61).MouseButton1Click:Connect(function()
+    ExecuteCommand(";time 0")
+end)
+
+-- ========== 拖拽功能 ==========
+local UserInputService = game:GetService("UserInputService")
+local gui = MainFrame
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+gui.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = gui.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+gui.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+print("三合一F3X GUI加载完成! 包含k00p、t00k、proto三个脚本的所有去重功能。")
