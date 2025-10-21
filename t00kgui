@@ -298,7 +298,7 @@ TextButton_20.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_20.Position = UDim2.new(0.730603456, 0, 0.380952388, 0)
 TextButton_20.Size = UDim2.new(0, 113, 0, 34)
 TextButton_20.Font = Enum.Font.SourceSans
-TextButton_20.Text = "colour spam 2"
+TextButton_20.Text = "colour spam"
 TextButton_20.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_20.TextSize = 14.000
 
@@ -772,6 +772,8 @@ local function FBCTRZ_fake_script() -- TextButton_15.LocalScript
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
 		RequestCommand:InvokeServer(";forceplace all 109147333821356")
+        RequestCommand:InvokeServer(";globalforceplace all 109147333821356")
+        RequestCommand:InvokeServer(";place all 109147333821356")
 	end)
 end
 coroutine.wrap(FBCTRZ_fake_script)()
@@ -784,7 +786,9 @@ local function DQCWN_fake_script() -- TextButton_16.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";forceplace other 109147333821356")
+		RequestCommand:InvokeServer(";forceplace others 109147333821356")
+        RequestCommand:InvokeServer(";globalforceplace others 109147333821356")
+        RequestCommand:InvokeServer(";place others 109147333821356")
 	end)
 end
 coroutine.wrap(DQCWN_fake_script)()
@@ -3251,9 +3255,10 @@ local function XNMHN_fake_script() -- TextButton_28.LocalScript
 	button.MouseButton1Click:Connect(function()
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
-	
-		RequestCommand:InvokeServer(";mute others ;hideguis others ;uncmdbar2 others")
-        
+
+        RequestCommand:InvokeServer(";mute others ;hideguis others ;uncmdbar2 others")
+        wait(3.5)
+        RequestCommand:InvokeServer(";unmute me ;showguis me")
 	end)
 end
 coroutine.wrap(XNMHN_fake_script)()
@@ -3272,7 +3277,8 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 		RequestCommand:InvokeServer(";fogcolor black")
 		wait(0.5)
 		RequestCommand:InvokeServer(";punish all")
-        RequestCommand:InvokeServer(";m Hacked by us")
+        RequestCommand:InvokeServer(";m Haxed by us")
+        RequestCommand:InvokeServer(";mute others ;hideguis others ;uncmdbar2 others")
 		wait(0.1)
         RequestCommand:InvokeServer(";sh You are about to go to our realm!!")
 		local player = game.Players.LocalPlayer
@@ -3621,15 +3627,16 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
     RequestCommand:InvokeServer(";fire all")
     RequestCommand:InvokeServer(";dog all")
     wait(1.6)
-    RequestCommand:InvokeServer(";title me t00kshaf1y")
+    RequestCommand:InvokeServer(";titleb me t00kshaf1y")
     RequestCommand:InvokeServer(";name all t00kshaf1y")
+    RequestCommand:InvokeServer(";savemap")
     wait(2.0)
 	RequestCommand:InvokeServer(";time 23")
-	RequestCommand:InvokeServer(";music 1847661821 ;volume inf  ;savemap ;pitch 1.1")
+	RequestCommand:InvokeServer(";music 1847661821 ;volume inf ;pitch 1.1")
     wait(5.0)
     RequestCommand:InvokeServer(";char all ttsghdvhfc2")
     RequestCommand:InvokeServer(";freeze all")
-    RequestCommand:InvokeServer(";sh hacked by team t00kshaf1y")
+    RequestCommand:InvokeServer(";sh haxed by Team t00kshaf1y")
     RequestCommand:InvokeServer(";sm This game was destroyed by us!")    
     wait(3.0)
     RequestCommand:InvokeServer(";jail all")
