@@ -258,7 +258,7 @@ TextButton_16.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_16.Position = UDim2.new(0.730603456, 0, 0.32872504, 0)
 TextButton_16.Size = UDim2.new(0, 113, 0, 34)
 TextButton_16.Font = Enum.Font.SourceSans
-TextButton_16.Text = "tp other to meep city 4"
+TextButton_16.Text = "tp others to meep city 4"
 TextButton_16.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_16.TextSize = 14.000
 
@@ -268,7 +268,7 @@ TextButton_17.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_17.Position = UDim2.new(0, 0, 0.380952388, 0)
 TextButton_17.Size = UDim2.new(0, 113, 0, 34)
 TextButton_17.Font = Enum.Font.SourceSans
-TextButton_17.Text = "proto skybox"
+TextButton_17.Text = "skybox 3"
 TextButton_17.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_17.TextSize = 14.000
 
@@ -278,7 +278,7 @@ TextButton_18.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_18.Position = UDim2.new(0.243534476, 0, 0.380952388, 0)
 TextButton_18.Size = UDim2.new(0, 113, 0, 34)
 TextButton_18.Font = Enum.Font.SourceSans
-TextButton_18.Text = "proto decal spam"
+TextButton_18.Text = "decal spam 3"
 TextButton_18.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_18.TextSize = 14.000
 
@@ -288,7 +288,7 @@ TextButton_19.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_19.Position = UDim2.new(0.487068951, 0, 0.380952388, 0)
 TextButton_19.Size = UDim2.new(0, 113, 0, 34)
 TextButton_19.Font = Enum.Font.SourceSans
-TextButton_19.Text = "proto texture spam"
+TextButton_19.Text = "texture spam"
 TextButton_19.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_19.TextSize = 14.000
 
@@ -1068,7 +1068,7 @@ local function FIAAGF_fake_script() -- TextButton_17.LocalScript
 				end
 			end
 		end
-		Sky("84491519970706")
+		Sky("82268888505521")
 	end)
 end
 coroutine.wrap(FIAAGF_fake_script)()
@@ -1349,7 +1349,7 @@ local function GVMXPGZ_fake_script() -- TextButton_18.LocalScript
 				end
 			end 
 		end
-		spam("84491519970706")
+		spam("82268888505521")
 	end)
 end
 coroutine.wrap(GVMXPGZ_fake_script)()
@@ -1630,7 +1630,7 @@ local function AHEMNRC_fake_script() -- TextButton_19.LocalScript
 				end
 			end 
 		end
-		spam("84491519970706")
+		spam("82268888505521")
 	end)
 end
 coroutine.wrap(AHEMNRC_fake_script)()
