@@ -308,7 +308,7 @@ TextButton_21.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_21.Position = UDim2.new(0, 0, 0.433179736, 0)
 TextButton_21.Size = UDim2.new(0, 113, 0, 34)
 TextButton_21.Font = Enum.Font.SourceSans
-TextButton_21.Text = "ptkid skybox 2"
+TextButton_21.Text = "Tubers93 skybox"
 TextButton_21.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_21.TextSize = 14.000
 
@@ -318,7 +318,7 @@ TextButton_22.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_22.Position = UDim2.new(0.243534476, 0, 0.433179736, 0)
 TextButton_22.Size = UDim2.new(0, 113, 0, 34)
 TextButton_22.Font = Enum.Font.SourceSans
-TextButton_22.Text = "ptkid decal spam 2"
+TextButton_22.Text = "Tubers93 decal spam"
 TextButton_22.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_22.TextSize = 14.000
 
@@ -328,7 +328,7 @@ TextButton_23.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_23.Position = UDim2.new(0.487068951, 0, 0.433179736, 0)
 TextButton_23.Size = UDim2.new(0, 113, 0, 34)
 TextButton_23.Font = Enum.Font.SourceSans
-TextButton_23.Text = "ptkid texture spam 2"
+TextButton_23.Text = "Tubers93 texture spam"
 TextButton_23.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_23.TextSize = 14.000
 
@@ -500,7 +500,7 @@ TextButton_39.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_39.Position = UDim2.new(0.487068951, 0, 0.898617506, 0)
 TextButton_39.Size = UDim2.new(0, 113, 0, 34)
 TextButton_39.Font = Enum.Font.SourceSans
-TextButton_39.Text = "alert"
+TextButton_39.Text = "alert 2"
 TextButton_39.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_39.TextSize = 14.000
 
