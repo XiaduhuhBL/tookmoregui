@@ -2145,7 +2145,7 @@ local function FWARLH_fake_script() -- TextButton_21.LocalScript
 				end
 			end
 		end
-		Sky("96622965544848")
+		Sky("121657187187299")
 	end)
 end
 coroutine.wrap(FWARLH_fake_script)()
@@ -2707,7 +2707,7 @@ local function YIYHOJF_fake_script() -- TextButton_23.LocalScript
 				end
 			end 
 		end
-		spam("96622965544848")
+		spam("121657187187299")
 	end)
 end
 coroutine.wrap(YIYHOJF_fake_script)()
@@ -3257,7 +3257,7 @@ local function XNMHN_fake_script() -- TextButton_28.LocalScript
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 
         RequestCommand:InvokeServer(";mute others ;hideguis others ;uncmdbar2 others")
-        wait(3.5)
+        wait(1.0)
         RequestCommand:InvokeServer(";unmute me ;showguis me")
 	end)
 end
@@ -3277,7 +3277,7 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 		RequestCommand:InvokeServer(";fogcolor black")
 		wait(0.5)
 		RequestCommand:InvokeServer(";punish all")
-        RequestCommand:InvokeServer(";m Haxed by us")
+        RequestCommand:InvokeServer(";sm Haxed by us")
         RequestCommand:InvokeServer(";mute others ;hideguis others ;uncmdbar2 others")
 		wait(0.1)
         RequestCommand:InvokeServer(";sh You are about to go to our realm!!")
@@ -3552,7 +3552,7 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 			lock(spawna, true)
 	
 			createdecal(spawna, Enum.NormalId.Top)
-			setdecal(spawna, "123452321164348", Enum.NormalId.Top) -- ganti decalnya pake decal lu
+			setdecal(spawna, "106058812682469", Enum.NormalId.Top) -- ganti decalnya pake decal lu
 			transparency(spawna, 1)
 	
 			local pos = CFrame.new(74.143, 24, -25.232)
@@ -3574,7 +3574,7 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 			transparency(bad, 1)
 			setcollision(bad, false)
 			createdecal(bad, Enum.NormalId.Right)
-			setdecal(bad, "118780143375538", Enum.NormalId.Right)
+			setdecal(bad, "110124512899975", Enum.NormalId.Right)
 			resize(bad, Vector3.new(4, 23, 37), pos)
 	
 		end
@@ -3585,7 +3585,7 @@ local function NJWHJ_fake_script() -- TextButton_29.LocalScript
 	
 			makemesh(sky)
 			syncmeshid(sky, "118780143375538")
-			syncmeshtexture(sky, "118953088842031")
+			syncmeshtexture(sky, "111744606274727")
 			syncmeshsize(sky, Vector3.new(99999, 99999, 99999))
 			lock(sky, true)
 			name(sky, "hackedlol")
